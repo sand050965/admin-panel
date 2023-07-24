@@ -1,0 +1,12 @@
+* {
+    font-family: "Ubuntu Mono derivative Powerline", sans-serif;
+}
+
+:root {
+    --blue: #2a2185;
+    --white: #fff;
+    --green: #009688;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
