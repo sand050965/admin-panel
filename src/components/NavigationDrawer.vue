@@ -89,43 +89,14 @@ const railStore = useRailStore();
 </template>
 
 <style scoped lang="scss">
-.navigation-drawer {
-  border: 0;
-}
-
-.divider {
-  height: 2px;
-  max-height: 1px;
-  background-color: #c1dbd0;
-  border: none;
-  opacity: 1;
-}
-
-.v-list-item {
-  height: 60px;
-  padding: 10px;
-  margin: 60px 0;
-  line-height: 60px;
-  color: var(--white);
-  text-align: start;
-  white-space: nowrap;
-  overflow: visible;
-}
-
-.v-list-item::after {
-  transition: none;
-}
-
-.v-list-item:hover,
-.v-list-item--active {
-  color: var(--green);
+%item-frame {
+  color: var(--green) !important;
   background-color: var(--white);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
-.v-list-item:hover::before,
-.v-list-item--active::before {
+%item-frame-before {
   content: '';
   position: absolute;
   right: 0;
@@ -139,8 +110,7 @@ const railStore = useRailStore();
   cursor: pointer;
 }
 
-.v-list-item:hover::after,
-.v-list-item--active::after {
+%item-frame-after {
   content: '';
   position: absolute;
   right: 0;
@@ -156,5 +126,58 @@ const railStore = useRailStore();
   opacity: 1;
   border: 0;
   z-index: -1;
+}
+
+.navigation-drawer {
+  border: 0;
+
+  .divider {
+    height: 2px;
+    max-height: 1px;
+    background-color: #c1dbd0;
+    border: none;
+    opacity: 1;
+  }
+
+  .v-list-item {
+    height: 60px;
+    padding: 10px;
+    margin: 60px 0;
+    line-height: 60px;
+    color: var(--white);
+    text-align: start;
+    white-space: nowrap;
+    overflow: visible;
+
+    &:after {
+      transition: none;
+    }
+
+    &:hover {
+      @extend %item-frame;
+
+      &:before {
+        @extend %item-frame-before;
+      }
+
+      &:after {
+        @extend %item-frame-after;
+      }
+    }
+
+  }
+
+  .v-list-item--active {
+    @extend %item-frame;
+
+    &:before {
+      @extend %item-frame-before;
+    }
+
+    &:after {
+      @extend %item-frame-after;
+    }
+  }
+
 }
 </style>
