@@ -12,9 +12,9 @@
 }
 
 .v-list-item > .v-list-item__overlay {
-    background-color: var(--white) !important;
-    border-top-left-radius: 30px !important;
-    border-bottom-left-radius: 30px !important;
+    background-color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     transition: none;
 }
 
@@ -22,8 +22,8 @@
     position: absolute;
     background-color: var(--green) !important;
     opacity: 0.2 !important;
-    border-top-left-radius: 30px !important;
-    border-bottom-left-radius: 30px !important;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     pointer-events: none;
 }
 
@@ -55,13 +55,14 @@
 
 .v-list-item--active > .v-list-item__overlay {
     background-color: var(--white) !important;
-    border-top-left-radius: 30px !important;
-    border-bottom-left-radius: 30px !important;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .v-list-item__prepend > .v-icon,
 .v-list-item__append > .v-icon {
     opacity: 1 !important;
+    padding-left: 8px;
 }
 
 .v-list-item .v-ripple__container {
