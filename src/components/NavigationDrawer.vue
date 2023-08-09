@@ -1,12 +1,10 @@
 <script setup>
-import {ref} from "vue";
 import {useDrawerStore} from "@/stores/drawer";
 import {useRailStore} from "@/stores/rail";
 
 const drawerStore = useDrawerStore();
 
 const railStore = useRailStore();
-
 </script>
 
 <template>
@@ -14,25 +12,42 @@ const railStore = useRailStore();
       class="bg-teal navigation-drawer"
       v-model="drawerStore.drawer"
       :rail="railStore.rail"
-      permanent
+      rail-width="70"
   >
-    <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
-        title="John Leider"
+    <v-card
+        class="mt-2 ml-1 mr-2 h-auto d-flex justify-center align-center"
+        color="#c1dbd0"
+        to="/"
     >
-    </v-list-item>
+      <v-avatar
+          size="x-large"
+          rounded="0"
+      >
+        <v-img
+            size="150"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Old_Nike_logo.jpg/200px-Old_Nike_logo.jpg"
+            cover
+        />
+      </v-avatar>
+      <!--      <v-card-title>-->
+      <!--        Nike-->
+      <!--      </v-card-title>-->
+    </v-card>
 
-    <v-divider></v-divider>
+    <v-divider
+        class="mt-5 text-lg divider"
+    ></v-divider>
 
     <v-list
-        class="pr-0 pt-8"
+        class="pt-0 pr-0 ml-2"
         theme="light"
+        density="comfortable"
     >
       <v-list-item
+          class="mt-10"
           v-bind="props"
           prepend-icon="fa:fas fa-tachometer-alt"
           to="/dashboard"
-          :ripple="{ class: 'ripple-expand' }"
           variant="text"
       >
         <h3>
@@ -44,7 +59,6 @@ const railStore = useRailStore();
           v-bind="props"
           prepend-icon="fa:fas fa-users"
           to="/user"
-          :ripple="true"
       >
         <h3>
           Users Management
@@ -55,7 +69,6 @@ const railStore = useRailStore();
           v-bind="props"
           prepend-icon="fa:fas fa-paste"
           to="/post"
-          :ripple="true"
       >
         <h3>
           Posts Management
@@ -66,7 +79,6 @@ const railStore = useRailStore();
           v-bind="props"
           prepend-icon="fa:fas fa-tags"
           to="/tag"
-          :ripple="true"
       >
         <h3>
           Tags Management
@@ -81,14 +93,23 @@ const railStore = useRailStore();
   border: 0;
 }
 
+.divider {
+  height: 2px;
+  max-height: 1px;
+  background-color: #c1dbd0;
+  border: none;
+  opacity: 1;
+}
+
 .v-list-item {
   height: 60px;
   padding: 10px;
-  margin: 50px 0;
+  margin: 60px 0;
   line-height: 60px;
   color: var(--white);
   text-align: start;
   white-space: nowrap;
+  overflow: visible;
 }
 
 .v-list-item::after {
@@ -101,7 +122,6 @@ const railStore = useRailStore();
   background-color: var(--white);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  transition: 0.1s ease-in;
 }
 
 .v-list-item:hover::before,
@@ -116,6 +136,7 @@ const railStore = useRailStore();
   border-radius: 50%;
   box-shadow: 35px 35px 0 10px var(--white);
   pointer-events: none;
+  cursor: pointer;
 }
 
 .v-list-item:hover::after,
